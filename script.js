@@ -40,8 +40,23 @@ const $creatures = [
 
 // YOUR WORK: build these features using the supplied HTML, CSS, and data.
 // 1. Select the collection and preference controls.
+// Find the creature collection, theme dropdown, layout dropdown,
+// and status message so JavaScript can interact with them.
+const $collection = document.querySelector("#collection");
+const $theme = document.querySelector("#theme");
+const $layout = document.querySelector("#layout");
+const $status = document.querySelector("#status");
+
 // 2. Use a loop to generate the creature entries. See START-HERE.md for markup.
+
+
 // 3. Listen for changes to each preference control and update the appearance.
+
+
 // 4. Save both selected preferences to Local Storage.
+
+
 // 5. Check for saved data on load and restore the controls and appearance.
+
+
 // Add short pseudocode comments before writing each feature.
