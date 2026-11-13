@@ -95,45 +95,40 @@ function savePreferences() {
   };
   // Save the preferences in Local Storage
   localStorage.setItem(
-    "creaturePreferences",
+    "MTM6302-creatureCollection",
     JSON.stringify(preferences)
   );
 }
 
 // 5. Check for saved data on load and restore the controls and appearance.
-
 function loadPreferences() {
-
   // Check Local Storage for saved preferences
   const savedPreferences = localStorage.getItem(
     "MTM6302-creatureCollection"
   );
-
   // Check whether saved preferences exist
   if (savedPreferences) {
-
-    // Convert the saved JSON string into an object
-    const preferences = JSON.parse(savedPreferences);
-
-    // Restore the selected theme and layout
-    $theme.value = preferences.theme;
-    $layout.value = preferences.layout;
-
-    // Update the visible appearance
-    updateAppearance();
-
-    // Display a message confirming restoration
-    $status.textContent = "Your saved preferences have been restored!";
-
+    try {
+      // Convert the saved JSON string into an object
+      const preferences = JSON.parse(savedPreferences);
+      // Restore the selected theme and layout
+      $theme.value = preferences.theme;
+      $layout.value = preferences.layout;
+      // Update the visible appearance
+      updateAppearance();
+      // Display a message confirming restoration
+      $status.textContent = "Your saved preferences have been restored!";
+    } catch (error) {
+      // Display a message if saved data cannot be read
+      $status.textContent = "Choose your preferences to make this collection yours.";
+    }
   } else {
-
     // Keep the original Forest and Cards appearance
     $status.textContent = "Choose your preferences to make this collection yours.";
-
   }
-
 }
 
-
+// Load saved preferences when the page opens
+loadPreferences();
 
 // Add short pseudocode comments before writing each feature.
