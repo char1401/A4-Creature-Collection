@@ -101,6 +101,19 @@ function savePreferences() {
 }
 
 // 5. Check for saved data on load and restore the controls and appearance.
+function savePreferences() {
+  // Store both selected preferences in an object
+  const preferences = {
+    theme: $theme.value,
+    layout: $layout.value
+  };
+
+  // Save the preferences in Local Storage
+  localStorage.setItem(
+    "MTM6302-creatureCollection",
+    JSON.stringify(preferences)
+  );
+}
 
 
 // Add short pseudocode comments before writing each feature.
