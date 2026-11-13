@@ -1,1 +1,51 @@
 *{box-sizing:border-box}body{--page:#eff1e9;--panel:#fafbf6;--ink:#243e34;--muted:#52665a;--line:#ccd5c5;--accent:#38644c;--hero:url('assets/habitat-forest.svg');margin:0;background:var(--page);color:var(--ink);font:16px/1.6 system-ui,sans-serif}body[data-theme=sky]{--page:#eaeaf2;--panel:#f8f7fc;--ink:#30334f;--muted:#5d6076;--line:#cecede;--accent:#5d568b;--hero:url('assets/habitat-sky.svg')}body[data-theme=desert]{--page:#f5e9de;--panel:#fff8f0;--ink:#653f34;--muted:#785c50;--line:#e0cbbb;--accent:#97513e;--hero:url('assets/habitat-desert.svg')}.shell{max-width:1440px;margin:auto;padding:32px}.hero{min-height:310px;border-radius:24px;padding:36px 44px;background:var(--hero) center/cover;color:#fff8eb;position:relative}.hero h1{font:600 clamp(36px,4vw,58px)/1.08 Georgia,serif;letter-spacing:-1px;margin:12px 0 20px}.hero>p:not(.eyebrow){max-width:450px;font-size:16px}.eyebrow{font-size:11px;letter-spacing:2px;font-weight:800;margin:0 0 10px}.hero-tag{display:inline-block;border:1px solid #ffffff66;border-radius:30px;padding:7px 14px;font-size:10px;letter-spacing:1.4px;background:#14251e66}main{display:grid;grid-template-columns:260px 1fr;gap:32px;margin-top:36px}.preferences{background:var(--panel);border:1px solid var(--line);padding:26px;border-radius:18px;align-self:start}.preferences h2{font:500 26px/1.2 Georgia,serif;margin:12px 0}.preferences p{color:var(--muted);font-size:14px}label{display:block;font-size:13px;font-weight:700;margin:22px 0 7px}select{font:inherit;font-size:14px;width:100%;padding:12px 8px;border:1px solid var(--line);border-radius:8px;background:var(--panel);color:var(--ink)}select:focus-visible{outline:3px solid var(--accent);outline-offset:3px}#status{padding-top:20px;margin-top:26px;border-top:1px solid var(--line);min-height:80px}.preferences .small{font-size:12px}.section-heading{display:flex;justify-content:space-between;align-items:center;margin-bottom:20px}.section-heading h2{font:500 32px/1.15 Georgia,serif;margin:0}.section-heading>span{font-size:12px;color:var(--muted)}.collection{list-style:none;padding:0;margin:0;display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:18px}.creature{border:1px solid var(--line);background:var(--panel);border-radius:16px;padding:12px;overflow:hidden}.creature img{display:block;width:100%;aspect-ratio:1;object-fit:contain;border-radius:12px}.creature-info{padding:12px 4px 4px}.creature h3{font:600 21px/1.2 Georgia,serif;margin:0 0 8px}.creature p{font-size:13px;color:var(--muted);margin:0}.collection[data-layout=detailed],.collection[data-layout=compact]{grid-template-columns:1fr}.collection[data-layout=detailed] .creature{display:flex;align-items:center;gap:22px}.collection[data-layout=detailed] img{width:120px;flex-shrink:0}.collection[data-layout=compact] .creature{display:flex;align-items:center;gap:16px;padding:8px 12px}.collection[data-layout=compact] img{width:52px;flex-shrink:0}.collection[data-layout=compact] .creature-info{padding:0}.collection[data-layout=compact] h3{font-size:18px;margin:0}.collection[data-layout=compact] .creature-description{display:none}footer{padding:28px 0 4px;font-size:12px;color:var(--muted)}@media(max-width:1050px){.collection{grid-template-columns:repeat(2,minmax(0,1fr))}main{grid-template-columns:230px 1fr;gap:20px}}@media(max-width:680px){.shell{padding:16px}.hero{padding:28px 24px;min-height:320px;background-position:65% center}.hero>p:not(.eyebrow){max-width:260px}main{grid-template-columns:1fr}.preferences{padding:22px}.preferences h2 br{display:none}.collection{gap:12px}.creature h3{font-size:18px}.collection[data-layout=detailed] img{width:85px}.collection[data-layout=detailed] .creature{gap:12px}.section-heading h2{font-size:28px}}
+
+/* To view on a narrow screen */
+/* Prevent grid content from overflowing */
+main,
+.collection-area,
+.preferences {
+  min-width: 0;
+}
+
+/* Improve tablet and mobile spacing */
+@media (max-width: 1050px) {
+  .hero {
+    background-position: center;
+  }
+}
+
+/* Improve mobile layouts */
+@media (max-width: 680px) {
+  /* Prevent long text from causing overflow */
+  .creature-info,
+  .preferences {
+    min-width: 0;
+    overflow-wrap: break-word;
+  }
+
+  /* Make detailed creature rows fit smaller screens */
+  .collection[data-layout=detailed] .creature {
+    align-items: center;
+    gap: 12px;
+  }
+  .collection[data-layout=detailed] img {
+    width: 75px;
+  }
+
+  /* Keep compact creature rows readable */
+  .collection[data-layout=compact] .creature {
+    gap: 10px;
+  }
+  .collection[data-layout=compact] img {
+    width: 44px;
+  }
+  .collection[data-layout=compact] h3 {
+    font-size: 16px;
+  }
+
+  /* Keep footer text within the screen */
+  footer {
+    overflow-wrap: break-word;
+  }
+}
