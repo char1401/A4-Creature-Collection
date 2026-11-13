@@ -65,7 +65,24 @@ $creatures.forEach(function(creature) {
 });
 
 // 3. Listen for changes to each preference control and update the appearance.
+function updateAppearance() {
+  // Update the habitat theme
+  document.body.dataset.theme = $theme.value;
+  // Update the collection layout
+  $collection.dataset.layout = $layout.value;
+  // Display feedback to the user
+  $status.textContent = "Your collection preferences have been updated!";
+}
 
+// Listen for changes to the THEME dropdown
+$theme.addEventListener("change", function() {
+  updateAppearance();
+});
+
+// Listen for changes to the LAYOUT dropdown
+$layout.addEventListener("change", function() {
+  updateAppearance();
+});
 
 // 4. Save both selected preferences to Local Storage.
 
