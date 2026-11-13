@@ -77,15 +77,28 @@ function updateAppearance() {
 // Listen for changes to the THEME dropdown
 $theme.addEventListener("change", function() {
   updateAppearance();
+  savePreferences();
 });
 
 // Listen for changes to the LAYOUT dropdown
 $layout.addEventListener("change", function() {
   updateAppearance();
+  savePreferences();
 });
 
 // 4. Save both selected preferences to Local Storage.
-
+function savePreferences() {
+  // Store both selected preferences in an object
+  const preferences = {
+    theme: $theme.value,
+    layout: $layout.value
+  };
+  // Save the preferences in Local Storage
+  localStorage.setItem(
+    "creaturePreferences",
+    JSON.stringify(preferences)
+  );
+}
 
 // 5. Check for saved data on load and restore the controls and appearance.
 
