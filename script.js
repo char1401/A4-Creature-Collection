@@ -48,7 +48,21 @@ const $layout = document.querySelector("#layout");
 const $status = document.querySelector("#status");
 
 // 2. Use a loop to generate the creature entries. See START-HERE.md for markup.
-
+// Loop through every creature in the array.
+// Create an HTML card using its name, image, alt text, and description.
+// Add each card to the collection.
+$creatures.forEach(function(creature) {
+  const creatureHTML = `
+    <li class="creature">
+      <img src="${creature.image}" alt="${creature.alt}">
+      <div class="creature-info">
+        <h3>${creature.name}</h3>
+        <p class="creature-description">${creature.description}</p>
+      </div>
+    </li>
+  `;
+  $collection.insertAdjacentHTML("beforeend", creatureHTML);
+});
 
 // 3. Listen for changes to each preference control and update the appearance.
 
